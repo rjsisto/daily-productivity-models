@@ -1,0 +1,7 @@
+waitress
+dash
+pandas==1.5
+joblib 
+notebook
+scikit-learn==1.2.1
+matplotlib
