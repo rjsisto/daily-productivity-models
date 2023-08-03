@@ -13,13 +13,22 @@ from datetime import datetime
 
 #!! pandas import/data wrangling for presentation stuff
 
-gbr_model_old = load("../notebooks/models/gbr_improved.joblib")
-master_data = pd.read_csv("../notebooks/data/master_dataset.csv")
-hours = pd.read_csv("../notebooks/data/random_hours.csv")
-gbr_model_old = load("../notebooks/models/gbr_improved.joblib")
-gbr_model = load("../notebooks/models/gbr_improved_3.joblib")
-xtratree_model = load("../notebooks/models/xtra_tree.joblib")
-randfor_model = load("../notebooks/models/rfr.joblib")
+try:
+    gbr_model_old = load("./notebooks/models/gbr_improved.joblib")
+    master_data = pd.read_csv("../notebooks/data/master_dataset.csv")
+    hours = pd.read_csv("../notebooks/data/random_hours.csv")
+    gbr_model_old = load("../notebooks/models/gbr_improved.joblib")
+    gbr_model = load("../notebooks/models/gbr_improved_3.joblib")
+    xtratree_model = load("../notebooks/models/xtra_tree.joblib")
+    randfor_model = load("../notebooks/models/rfr.joblib")
+except:
+    gbr_model_old = load("notebooks/models/gbr_improved.joblib")
+    master_data = pd.read_csv("notebooks/data/master_dataset.csv")
+    hours = pd.read_csv("notebooks/data/random_hours.csv")
+    gbr_model_old = load("notebooks/models/gbr_improved.joblib")
+    gbr_model = load("notebooks/models/gbr_improved_3.joblib")
+    xtratree_model = load("notebooks/models/xtra_tree.joblib")
+    randfor_model = load("notebooks/models/rfr.joblib")
 
 #!! model stuff
 #TODO will probably want to add a standard randomized seed
