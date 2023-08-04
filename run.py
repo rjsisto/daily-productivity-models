@@ -1,14 +1,8 @@
 #maybe switch this over to invoke or something like that
 import argparse
 import os
+import papermill as pm
 
-#TODO create a windows script that emulates the setup_env.sh one
-#code to determine if os is windows or max/linux
-activate = None
-if(os.name == "posix"):
-    activate = "source .venv/bin/activate;"
-elif(os.name == "nt"):
-    activate = "activate windows python environment"
 
 #TODO come up with a name for this run.py
 parser = argparse.ArgumentParser(prog="makefile", description="The main way to access the project")
@@ -16,8 +10,27 @@ parser = argparse.ArgumentParser(prog="makefile", description="The main way to a
 parser.add_argument("-j", "--jup", help="Run the Jupyter Lab Server", action="store_true")
 parser.add_argument("-d", "--dash", help="Run the dashboard", action="store_true")
 parser.add_argument("-c", "--create_env", help="Create the virtual environment", action="store_true")
+parser.add_argument("-w", "--win", help="Manually tell the program to use windows syntax", action="store_true")
+parser.add_argument("-m", "--models", help="Create the models needed for the dashboard", action="store_true")
 
 args = parser.parse_args()
+
+#code to determine if os is windows or max/linux
+win = None
+if(os.name == "posix"):
+    win = False
+elif(os.name == "nt" or args.win):
+    win = True
+
+
+#TODO create a windows script that emulates the setup_env.sh one
+activate = None
+if(win):
+    activate = ".venv\Scripts\activate&"
+else:
+    activate = "source .venv/bin/activate;"
+
+
 if(args.jup):
     os.system(activate + "jupyter lab")
 if(args.dash):
@@ -25,6 +38,15 @@ if(args.dash):
 
 #TODO change this for windows
 if(args.create_env):
-    os.system("bash setup_env.sh")
+    if(win):
+        os.system("call setup_env.bat")
+    else:
+        os.system("bash setup_env.sh")
+
+if(args.models):
+    os.chdir("notebooks")
+    pm.execute_notebook("data_preprocess.ipynb", None)
+    pm.execute_notebook("model_build.ipynb", None)
+    os.chdir("..")
 
 parser.print_help()
