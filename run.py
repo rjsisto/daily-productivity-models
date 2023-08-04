@@ -1,8 +1,6 @@
 #maybe switch this over to invoke or something like that
 import argparse
 import os
-import papermill as pm
-
 
 #TODO come up with a name for this run.py
 parser = argparse.ArgumentParser(prog="makefile", description="The main way to access the project")
@@ -30,7 +28,6 @@ if(win):
 else:
     activate = "source .venv/bin/activate;"
 
-
 if(args.jup):
     os.system(activate + "jupyter lab")
 if(args.dash):
@@ -44,6 +41,7 @@ if(args.create_env):
         os.system("bash setup_env.sh")
 
 if(args.models):
+    import papermill as pm
     os.chdir("notebooks")
     pm.execute_notebook("data_preprocess.ipynb", None)
     pm.execute_notebook("model_build.ipynb", None)
