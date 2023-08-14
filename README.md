@@ -53,6 +53,10 @@ Finally, here is a screenshot of the interactive dashboard showing the real and 
 -   `notebooks/models/`: Folder where the models will be stored
 -   `data_app/`: Contains the files for the dashboard app.
 
+## Future Work
+
+- Create a docker container for this project
+
 ## Contact
 
 For questions or suggestions, feel free to contact me at rjsisto1000\@gmail.com.

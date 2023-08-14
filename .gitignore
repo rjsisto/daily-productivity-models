@@ -3,3 +3,4 @@ notebooks/.ipynb_checkpoints
 notebooks/models/*.joblib
 notebooks/data/master_dataset.csv
 notebooks/data/model_dataset.csv
+__pycache__/
