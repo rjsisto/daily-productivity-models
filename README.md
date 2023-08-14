@@ -10,11 +10,12 @@ Follow these steps to get started:
 
 1.  Clone this repository: `git clone https://github.com/rjsisto/daily-productivity-models.git`
 2.  Open a terminal in the project directory: `cd daily-productivity-models`
-3.  Create the virtual environment using the *run.py* script: `python run.py -c` (Mac OS/Linux) or `python run.py -w -c` (Windows) {if Windows command does not work, than just run the *setup_env.bat* script separately by typing `call setup_env.bat`}
+3.  Create the virtual environment using the *run.py* script: `python run.py -c` (Mac OS/Linux) or `python run.py -w -c` (Windows)
 
 ## Usage
 
-1.  Launch the Jupyter Notebooks: `python run.py -j`
+0.  If running on Windows, use the `-w` argument to specify your OS
+1.  Launch the Jupyter Notebooks: `python run.py -j` 
 2.  Navigate to the notebooks folder to view the various notebooks
 3.  In order to create the models for the dashboard, run: `python run.py -m` (This processes the data and creates the models. This may take a little while.)
 4.  Launch the dashboard: `python run.py -d`
