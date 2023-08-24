@@ -6,3 +6,5 @@ notebook
 scikit-learn==1.2.1
 matplotlib
 papermill
+dvc
+dvc-gdrive
