@@ -2,10 +2,13 @@
 
 import pandas as pd
 import random
+from sys import path
+path.append("..")
+from config import *
 
-sae = pd.read_csv('data/sae.csv')
-cases = pd.read_csv("data/Cases.csv")
-hours = pd.read_csv("data/hours.csv")
+sae = pd.read_csv(DATA_FOLDER + '/sae.csv')
+cases = pd.read_csv(DATA_FOLDER + "/Cases.csv")
+hours = pd.read_csv(DATA_FOLDER + "/hours.csv")
 
 #making sure that the number is not negative
 def not_neg(x):
@@ -50,5 +53,5 @@ new_hours["CASES_SELECTED"] = new_cases_sel
 new_hours["MEASURED_DIRECT_HRS"] = new_hours_sel
 
 #writing the new datasets to files
-new_hours.to_csv("data/random_hours.csv")
-new_cases.to_csv("data/random_cases.csv")
+new_hours.to_csv(DATA_FOLDER + "/random_hours.csv")
+new_cases.to_csv(DATA_FOLDER + "/random_cases.csv")

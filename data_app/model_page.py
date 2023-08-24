@@ -3,6 +3,12 @@ import pandas as pd
 import plotly.graph_objects as go
 from joblib import load
 from datetime import datetime
+try:
+    from config import *
+except:
+    from sys import path
+    path.append("..")
+    from config import *
 
 #!!!!! change this stuff with the pipeline stuff
 
@@ -13,22 +19,13 @@ from datetime import datetime
 
 #!! pandas import/data wrangling for presentation stuff
 
-try:
-    gbr_model_old = load("./notebooks/models/gbr_improved.joblib")
-    master_data = pd.read_csv("../notebooks/data/master_dataset.csv")
-    hours = pd.read_csv("../notebooks/data/random_hours.csv")
-    gbr_model_old = load("../notebooks/models/gbr_improved.joblib")
-    gbr_model = load("../notebooks/models/gbr_improved_3.joblib")
-    xtratree_model = load("../notebooks/models/xtra_tree.joblib")
-    randfor_model = load("../notebooks/models/rfr.joblib")
-except:
-    gbr_model_old = load("notebooks/models/gbr_improved.joblib")
-    master_data = pd.read_csv("notebooks/data/master_dataset.csv")
-    hours = pd.read_csv("notebooks/data/random_hours.csv")
-    gbr_model_old = load("notebooks/models/gbr_improved.joblib")
-    gbr_model = load("notebooks/models/gbr_improved_3.joblib")
-    xtratree_model = load("notebooks/models/xtra_tree.joblib")
-    randfor_model = load("notebooks/models/rfr.joblib")
+gbr_model_old = load(MODEL_FOLDER + "/gbr_improved.joblib")
+master_data = pd.read_csv(DATA_FOLDER + "/master_dataset.csv")
+hours = pd.read_csv(DATA_FOLDER + "/random_hours.csv")
+gbr_model_old = load(MODEL_FOLDER + "/gbr_improved.joblib")
+gbr_model = load(MODEL_FOLDER + "/gbr_improved_3.joblib")
+xtratree_model = load(MODEL_FOLDER + "/xtra_tree.joblib")
+randfor_model = load(MODEL_FOLDER + "/rfr.joblib")
 
 #!! model stuff
 #TODO will probably want to add a standard randomized seed
