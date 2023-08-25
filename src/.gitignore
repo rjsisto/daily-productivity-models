@@ -1,6 +1,2 @@
-/data
-/data
-/data
-/models
-/models
-/models
+models/*.joblib
+data/*.csv
