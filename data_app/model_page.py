@@ -2,18 +2,10 @@ from dash import Dash, dcc, html, Input, Output
 import pandas as pd
 import plotly.graph_objects as go
 from joblib import load
-from datetime import datetime
-try:
-    from config import *
-except:
-    from sys import path
-    path.append("..")
-    from config import *
 
-#!!!!! change this stuff with the pipeline stuff
-
-#TODO have recreate all new models from within docker
-
+import os
+MODEL_FOLDER = os.getenv("MODEL_FOLDER")
+DATA_FOLDER = os.getenv("DATA_FOLDER")
 
 #create a dashboard that shows these graphs by each warehouse
 
