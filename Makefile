@@ -46,10 +46,10 @@ dash: ##Launch the Dashboard
 ##@ Download SRC Files
 
 download_data: ##Download the data files
-	$(VENV)/bin/dvc pull src/data
+	$(VENV)/bin/dvc pull src/data --force
 
 download_models: ##Download the models
-	$(VENV)/bin/dvc pull src/models
+	$(VENV)/bin/dvc pull src/models --force
 
 
 
